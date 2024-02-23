@@ -2,21 +2,19 @@
    Square Results
 </h1>
 
-<%= params %>
-
 <dl>
    <dt>
      Number
    </dt> 
    <dd>
-    <%= params.fetch("users_number") %>
+    <%= @the_num %>
    </dd>
 
    <dt> 
      square
    </dt>
    <dd>
-     <%= params.fetch("users_number").to_f * params.fetch("users_number").to_f %>
+     <%= @the_result %>
    </dd>
 </dl>
 
