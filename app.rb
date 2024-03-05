@@ -17,10 +17,6 @@ get("/goodbye") do
 end
 
 get("/square/new")do
-   @the_num = params.fetch("users_number").to_f
-
-   @the_result = @the_num **2  
-
    erb(:new_square_calc)
 end
 
