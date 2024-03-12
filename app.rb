@@ -37,23 +37,25 @@ get ("/square_root/results") do
 end
 
 get("/payment/new") do
-  
+  @apr = params.fetch ("apr").to_f 
+ @yrs_remain = params.fetch("yrs_remain").to_f
+ @present_value = params.fetch("present_value").to_f
+ @the_results = @the_num
   erb(:new_payment_calc)
 end
 
 get ("/payment/results") do
-  @apr = params.fetch ("apr").to_f
-  @yrs_remain = params.fetch("yrs_remain").to_f
-  @present_value = params.fetch("present_value").to_f
-  
-  @the_results = @the_num
-  erb(:payment_results)
+ @r =(@apr / 100.0) /12.0
+ @ = @yrs_remain + 12.0
+  @numerator = (@r )
+   erb(:payment_results)
 end
 
-get("/random/new") do
+get ("/random/new") do
   erb(:new_random_calc)
 end
 
 get("/random/results") do
-  erb(:random_results)
+
+  erb(:random_results) 
 end
