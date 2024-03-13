@@ -1,1 +1,37 @@
+<h1> Payment Results <h1> 
 
+<%= params%>
+
+<dl>
+  <dt>
+    APR
+  </dt>
+  <dd>
+   <%= @apr %>
+  </dd>
+  
+  <dt>
+   number of years
+  <dt>
+  
+  <dd>
+     <%= @yrs_remain %>
+  </dd>
+</dl>
+  
+<dl>
+  <dt>
+    Principal
+  <dt>
+  <dd>
+    $<%= @present_value %>
+  </dd>
+  <dt>
+    Payment 
+  <dt>
+<dl>
+
+ <dd>
+   $<%= @the_results.round(2) %>
+ </dd>
+<dl>
