@@ -45,12 +45,13 @@ get ("/payment/results") do
   @apr = params.fetch("apr").to_f 
   @yrs_remain = params.fetch("yrs_remain").to_f
   @present_value = params.fetch("present_value").to_f
-  @the_results = @the_num
+ 
   @r =(@apr / 100.0) /12.0
   @n = @yrs_remain + 12.0
 
  @numerator = (@r + @present_value)
  @denom = (1.0 - ((1.0 + @r)**-@n))
+ 
  @the_result = @numerator / @denom
 
    erb(:payment_results)
