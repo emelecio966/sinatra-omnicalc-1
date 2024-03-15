@@ -17,10 +17,15 @@ get("/goodbye") do
 end
 
 get("/square/new")do
+  
    erb(:new_square_calc)
 end
 
 get("/square_new/results") do
+  @the_num = params.fetch("users_number").to_f
+
+  @the_result = @the_num **2
+
   erb(:square_results)
 end
 
@@ -29,10 +34,7 @@ get("/square_root/new") do
 end
 
 get ("/square_root/results") do
-   @the_num = params.fetch("users_number").to_f
-
-  @the_result = @the_num **2
-
+ 
   erb(:square_results)
 end
 
@@ -47,12 +49,12 @@ get ("/payment/results") do
   @present_value = params.fetch("present_value").to_f
  
   @r =(@apr / 100.0) /12.0
-  @n = @yrs_remain + 12.0
+  @n = @yrs_remain * 12.0
 
- @numerator = (@r + @present_value)
- @denom = (1.0 - ((1.0 + @r)**-@n))
+  @numerator = (@r * @present_value)
+  @denom = (1.0 - ((1.0 + @r)**-@n))
  
- @the_result = @numerator / @denom
+  @the_result = @numerator / @denom
 
    erb(:payment_results)
 end
@@ -61,7 +63,7 @@ get ("/random/new") do
   erb(:new_random_calc)
 end
 
-get("/random/results") do
+get("/new_random/results") do
 
   erb(:random_results) 
 end
