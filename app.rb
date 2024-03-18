@@ -26,7 +26,7 @@ get("/square_new/results") do
 
   @the_result = @the_num **2
 
-  erb(:square_results)
+  erb(:square_root_results)
 end
 
 get("/square_root/new") do
